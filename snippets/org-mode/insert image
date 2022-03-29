@@ -1,0 +1,11 @@
+# key: img
+# name: insert image
+# --
+
+#+NAME: fig: system calls
+#+CAPTION: system calls mechanism
+#+ATTR_ORG: :width 700
+#+ATTR_LATEX: :width 1.0in
+#+ATTR_HTML: :width 100
+[[$1]]
+

@@ -1,0 +1,16 @@
+# key: include
+# name: c-start
+# --
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <strings.h>
+
+
+int main(int argc, char* argv[]){
+
+
+
+
+    exit(0);
+}

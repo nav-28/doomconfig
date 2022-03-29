@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name:header
+# key: exam
+# --
+\documentclass[12pt]{exam}
+\printanswers
+\framesolution
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6in,4in}]{geometry}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+\title{
+
+}
+
+
+\begin{document}
+\maketitle
+\noindent
+
+
+\end{document}

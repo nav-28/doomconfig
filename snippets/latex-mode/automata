@@ -1,0 +1,9 @@
+# key: automata
+# name: automata
+# --
+\begin{tikzpicture}
+    \node[state, initial] (q1) {1};
+
+
+    \draw (q1) edge[loop above] (q1) (q1);
+\end{tikzpicture}
