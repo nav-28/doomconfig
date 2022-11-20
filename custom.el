@@ -19,6 +19,7 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#073642" "#859900"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#073642" "#56697A"))
  '(objed-cursor-color "#dc322f")
+ '(package-selected-packages '(auctex format-all))
  '(pdf-view-midnight-colors (cons "#839496" "#002b36"))
  '(rustic-ansi-faces
    ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
@@ -43,7 +44,8 @@
     (cons 320 "#775b67")
     (cons 340 "#405A61")
     (cons 360 "#405A61")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ '(warning-suppress-types '((irony))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
