@@ -50,18 +50,5 @@
 ;(unpin! t)
 
 
-(package! org-bullets)
-(package! riscv-mode)
-(package! irony)
-(package! dart-mode)
-(package! lsp-mode)
+
 (package! lsp-dart)
-(package! lsp-treemacs)
-(package! lsp-ui)
-(package! hover)
-(package! format-all)
-(package! auctex)
-(package! lsp-mode)
-(package! lsp-metals)
-(package! clang-format)
-(package! auctex)
