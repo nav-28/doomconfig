@@ -52,3 +52,5 @@
 
 
 (package! lsp-dart)
+(package! lsp-metals)
+(package! prettier-js)
