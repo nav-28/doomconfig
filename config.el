@@ -80,3 +80,4 @@
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 (add-hook 'typescript-mode-hook 'lsp)
 (add-hook 'js2-mode-hook 'lsp)
+(add-hook 'web-mode-hook 'lsp)
