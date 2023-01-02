@@ -60,8 +60,8 @@
   (setq lsp-prefer-flymake nil)
   ;; Makes LSP shutdown the metals server when all buffers in the project are closed.
   ;; https://emacs-lsp.github.io/lsp-mode/page/settings/mode/#lsp-keep-workspace-alive
-  (setq lsp-keep-workspace-alive nil))
-
+  (setq lsp-keep-workspace-alive nil)
+  (setq lsp-log-io nil))
 
 (use-package company
   :hook (scala-mode . company-mode)
@@ -75,9 +75,13 @@
 
 
 ;; prettier-js config
-(add-hook 'web-mode-hook 'prettier-js-mode)
-(add-hook 'js2-mode-hook 'prettier-js-mode)
-(add-hook 'rjsx-mode-hook 'prettier-js-mode)
 (add-hook 'typescript-mode-hook 'lsp)
 (add-hook 'js2-mode-hook 'lsp)
 (add-hook 'web-mode-hook 'lsp)
+
+;; format code on save
+(add-hook 'scala-mode-hook 'format-all-mode)
+(add-hook 'typescript-mode-hook 'format-all-mode)
+(add-hook 'js2-mode-hook 'format-all-mode)
+(add-hook 'web-mode-hook 'format-all-mode)
+(add-hook 'dart-mode-hook 'format-all-mode)
