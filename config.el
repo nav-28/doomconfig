@@ -4,7 +4,7 @@
 (setq doom-font (font-spec :family "MesloLGS NF" :size 15 :weight 'regular)
        doom-variable-pitch-font (font-spec :family "SF Pro Text" :size 13))
 
-(setq doom-theme 'doom-dark+)
+(setq doom-theme 'doom-tokyo-night)
 (setq org-directory "~/org/")
 
 (setq display-line-numbers-type 'relative)
@@ -16,19 +16,17 @@
    split-height-threshold nil)
 
 ;; change garbage collector threshold
-;; change max bytes read from subprocess cause emacs for OSX has a lower value and causes error in metals
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024))
 
 ;; title
 (setq-default frame-title-format '("hey bro, just FYI, this file is called %b or something"))
 
-;; treemacs icons
-(setq doom-themes-treemacs-theme "doom-colors")
+;; Don't show line numbers in org mode
+(add-hook org-mode-hook (lambda () (display-line-numbers-mode 0)))
 
-;; add dart mode to run flutter and dart apps in emacs
-(add-hook 'dart-mode-hook 'lsp)
 
+(require 'treemacs-extensions)
 ;; scala metals
 
 (use-package scala-mode
@@ -45,8 +43,9 @@
    minibuffer-local-completion-map)
    ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
    (setq sbt:program-options '("-Dsbt.supershell=false")))
-
 (use-package lsp-mode
+  ;; Optional - enable lsp-mode automatically in scala files
+  ;; You could also swap out lsp for lsp-deffered in order to defer loading
   :hook  (scala-mode . lsp)
          (lsp-mode . lsp-lens-mode)
   :config
@@ -55,24 +54,26 @@
   (setq gc-cons-threshold 100000000) ;; 100mb
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (setq lsp-idle-delay 0.500)
-  ;; (setq lsp-log-io nil)
-  ;; (setq lsp-completion-provider :capf)
+  (setq lsp-log-io nil)
+  (setq lsp-completion-provider :capf)
   (setq lsp-prefer-flymake nil)
   ;; Makes LSP shutdown the metals server when all buffers in the project are closed.
   ;; https://emacs-lsp.github.io/lsp-mode/page/settings/mode/#lsp-keep-workspace-alive
-  (setq lsp-keep-workspace-alive nil)
-  (setq lsp-log-io nil))
+  (setq lsp-keep-workspace-alive nil))
 
 (use-package company
   :hook (scala-mode . company-mode)
   :config
   (setq lsp-completion-provider :capf))
 
-(use-package dap-mode
-  :hook
-  (lsp-mode . dap-mode)
-  (lsp-mode . dap-ui-mode))
 
+(use-package dart-mode
+  :config
+  (setq-local doom-modeline-major-mode-icon nil))
+
+(setq lsp-dart-flutter-widget-guides nil)
+(setq lsp-dart-outline nil)
+(setq emojify-mode nil)
 
 ;; prettier-js config
 (add-hook 'typescript-mode-hook 'lsp)
@@ -80,8 +81,13 @@
 (add-hook 'web-mode-hook 'lsp)
 
 ;; format code on save
-(add-hook 'scala-mode-hook 'format-all-mode)
-(add-hook 'typescript-mode-hook 'format-all-mode)
-(add-hook 'js2-mode-hook 'format-all-mode)
-(add-hook 'web-mode-hook 'format-all-mode)
-(add-hook 'dart-mode-hook 'format-all-mode)
+;;(add-hook 'scala-mode-hook 'format-all-mode)
+;;(add-hook 'typescript-mode-hook 'format-all-mode)
+;;(add-hook 'js2-mode-hook 'format-all-mode)
+;;(add-hook 'web-mode-hook 'format-all-mode)
+;;(add-hook 'dart-mode-hook 'format-all-mode)
+;;
+
+;; make emacs transparent
+(set-frame-parameter (selected-frame) 'alpha '(95 . 95))
+(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
