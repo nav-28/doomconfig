@@ -23,8 +23,10 @@
 (setq-default frame-title-format '("hey bro, just FYI, this file is called %b or something"))
 
 ;; Don't show line numbers in org mode
-(add-hook org-mode-hook (lambda () (display-line-numbers-mode 0)))
+(add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
 
+;; always use swipl as the inferior prolog process
+(setq prolog-program-name "swipl")
 
 (require 'treemacs-extensions)
 ;; scala metals
